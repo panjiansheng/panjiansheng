@@ -75,6 +75,60 @@ public class LeetStack {
 		return max;
 
 	}
+	
+    public int trap(int[] heights) {
+//    	int sum=0;
+//    	int i=0;
+//    	 while(i<A.length){
+//    		int j=i+1;
+//    		boolean flag=true;
+//    		while (j<A.length) {
+//    			if (A[j]>=A[i]) {
+//					int k=i+1;
+//					while (k<j) {
+//						if (A[k]<A[i]) {
+//							sum=sum+A[i]-A[k];
+//						}
+//						k++;
+//					}
+//					i=j;
+//					flag=false;
+//					break ;
+//				}
+//    			j++;
+//			}
+//    		if (flag) {
+//        		i=i+1;
+//			}
+//		}
+//		return sum;
+        int n=heights.length;
+        int maxhigh=0;
+        int left=0,right=0;
+        for(int i=0;i<n;i++)//找到最大值的下标
+        {
+            if(heights[i]>heights[maxhigh])
+                maxhigh=i;
+        }
+        int sum=0;
+        for(int i=0;i<maxhigh;i++)//计算左边的容量
+        {
+            if(heights[i]<left)
+               sum+=(left-heights[i]);
+            else
+               left=heights[i];
+        }
+         
+        for(int j=n-1;j>maxhigh;j--)//计算右边的容量
+        {
+            if(heights[j]<right)
+               sum+=(right-heights[j]);
+            else
+               right=heights[j];
+        }
+        return sum;
+        
+    }
 
 	public int longestValidParentheses(String s) {
 
@@ -119,6 +173,7 @@ public class LeetStack {
 		System.out.println(leetStack.evalRPN(tokens));
 		System.out.println(leetStack.largestRectangleArea(new int[] { 2, 0, 2 }));
 		System.out.println(leetStack.longestValidParentheses("()(())"));
+		System.out.println(leetStack.trap(new int[]{4,2,3}));
 
 	}
 
