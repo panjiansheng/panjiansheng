@@ -1,5 +1,6 @@
 package leetstack;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class LeetStack {
@@ -88,6 +89,11 @@ public class LeetStack {
 		while (!stack.isEmpty()) {
 			Character char1 = stack.pop();
 			if (char1.equals( ')')) {
+				
+				while(!stack.isEmpty()){
+					Character character=stack.pop();
+					
+				}
 				if (!stack.isEmpty()) {
 					Character char2 = stack.pop();
 					if (!(char2.equals( '('))) {
@@ -111,6 +117,25 @@ public class LeetStack {
 		return countMax;
 
 	}
+	
+	
+    public int trap(int[] A) {
+    	ArrayList<Integer> list=new ArrayList<>();
+    	for(int i=0;i<A.length-1;i++){
+    		list.add(A[i+1]-A[i]);
+    	}
+    	System.out.println(list);
+    	int trap=0;
+    	if (list.get(0)>0) {
+			
+		}
+    	int tmp1=0,tmp2=0;
+    	for (int i = 1; i < list.size()-1; i++) {
+    		
+		}
+		return 0;
+        
+    }
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -119,7 +144,7 @@ public class LeetStack {
 		System.out.println(leetStack.evalRPN(tokens));
 		System.out.println(leetStack.largestRectangleArea(new int[] { 2, 0, 2 }));
 		System.out.println(leetStack.longestValidParentheses("()(())"));
-
+		System.out.println(leetStack.trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
 	}
 
 }
