@@ -1,6 +1,10 @@
 package leetlist;
 
-import java.awt.List;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
 
@@ -19,25 +23,47 @@ public class LeetList {
 		return head;
 	}
 
-	public RandomListNode copyRandomList(RandomListNode head) {
+	public ListNode copyRandomList (ListNode head)  {
 		if (head == null) {
 			return null;
 		}
-		RandomListNode randomListNode = new RandomListNode(head.label);
-		RandomListNode headNew = randomListNode;
-		while (head.next != null) {
-			RandomListNode tmp = new RandomListNode(head.next.label);
-			randomListNode.next = tmp;
+		try {
+			
 
-			if (head.random != null) {
-				RandomListNode tmp2 = new RandomListNode(head.random.label);
-				randomListNode.random = tmp2;
-			}
-			head = head.next;
-			randomListNode = randomListNode.next;
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
+		ObjectOutputStream oos;
+
+		oos = new ObjectOutputStream(bos);
+
+		oos.writeObject(head);
+
+		// 将流序列化成对象
+		ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+
+		ObjectInputStream ois = new ObjectInputStream(bis);
+
+		
+		return (ListNode) ois.readObject();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
 		}
-		return headNew;
+//		RandomListNode randomListNode = new RandomListNode(head.label);
+//		RandomListNode headNew = randomListNode;
+//		while (head.next != null) {
+//			RandomListNode tmp = new RandomListNode(head.next.label);
+//			randomListNode.next = tmp;
+//
+//			if (head.random != null) {
+//				RandomListNode tmp2 = new RandomListNode(head.random.label);
+//				randomListNode.random = tmp2;
+//			}
+//			head = head.next;
+//			randomListNode = randomListNode.next;
+//
+//		}
+//		return headNew;
 
 	}
 
@@ -132,18 +158,19 @@ public class LeetList {
 		ListNode listNode4=new ListNode(4);
 		ListNode listNode5=new ListNode(5);
 		ListNode listNode6=new ListNode(6);
-		head=listNode1;
-		head.next=listNode2;
-		listNode2.next=listNode3;
-		listNode3.next=listNode4;
-		listNode4.next=listNode5;
-		listNode4.next=listNode3;
+//		head=listNode1;
+//		head.next=listNode2;
+//		listNode2.next=listNode3;
+//		listNode3.next=listNode4;
+//		listNode4.next=listNode5;
+//		listNode4.next=listNode3;
 		//System.out.println(head);
 		//leetList.reorderList(head);
 		//System.out.println(head);
-		System.out.println(leetList.hasCycle(head));
-		ListNode lNode=leetList.detectCycle(head);
-		System.out.println(lNode.val);
+//		System.out.println(leetList.hasCycle(head));
+//		ListNode lNode=leetList.detectCycle(head);
+//		System.out.println(lNode.val);
+		System.out.println(leetList.copyRandomList(head));
 	}
 
 }
