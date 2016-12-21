@@ -202,6 +202,8 @@ public class LeetArray {
 		}
 	}
 
+	
+	//希尔排序跨度为gap的几个数直接插入排序
 	public void shellSort(int[] a) {
 		int i, j, gap;
 		int n = a.length;
@@ -220,6 +222,43 @@ public class LeetArray {
 					}
 			}
 	}
+	
+	
+	//堆排序
+	public void heapSort(int[] A){
+		buildHeap(A);
+		output(A);
+		for (int i = A.length-1; i >0; i--) {
+			swap(A, 0, i);
+			maxHeapify(A, 0, i);
+		}
+	}
+	
+	public void maxHeapify(int[] A,int i,int size){
+		int l=2*(i+1)-1;
+		int r=2*(i+1);
+		int largest=i;
+		if (l<size&&A[l]>A[i]) {
+			largest=l;
+		}
+		if (r<size&&A[r]>A[i]) {
+			largest=r;
+		}
+		if (largest!=i) {
+			swap(A, i, largest);
+			maxHeapify(A, largest,size);
+		}
+	}
+	
+	
+	public void buildHeap(int[] A){
+		int size=A.length;
+		for (int i = A.length/2-1; i >=0; i--) {
+			maxHeapify(A, i,size);
+		}
+	}
+	
+
 
 	public void output(int[] array) {
 		for (int i : array) {
@@ -244,7 +283,8 @@ public class LeetArray {
 		// leetArray.insertSort(array);
 		// leetArray.selectSort(array);
 		// leetArray.quickSork(array, 0, 5);
-		leetArray.shellSort(array);
+		//leetArray.shellSort(array);
+		leetArray.heapSort(array);
 		leetArray.output(array);
 	}
 
