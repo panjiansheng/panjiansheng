@@ -76,6 +76,7 @@ public class LeetTest {
 		
 		A a=new C(1);
 		System.out.println(a.val);
+		System.out.println(3.0/4);
 //		for (int i = 0; i < 10; i++) {
 //			System.out.println(123456789 / (int) Math.pow(10, i) % 10);
 //		}

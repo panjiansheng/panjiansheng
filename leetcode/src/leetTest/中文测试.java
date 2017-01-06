@@ -1,6 +1,6 @@
 package leetTest;
 
-public class 中文测试  implements C,B{
+public class 中文测试 {
 	
 	public static String 中文字符串="Java可以用中文变量名";
 	Boolean 中文变量名测试=true;
@@ -16,7 +16,6 @@ public class 中文测试  implements C,B{
 			
 			System.out.println(中文字符串);
 		}
-		//System.out.println(测试.val);
 	}
 }
 
