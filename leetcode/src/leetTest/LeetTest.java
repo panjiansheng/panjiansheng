@@ -15,6 +15,7 @@ public class LeetTest {
 
 		public A(int val) {
 			this.val = val;
+			String my="pan";
 		}
 
 		@Override
