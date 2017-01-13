@@ -44,10 +44,15 @@ public class LeetTest {
 
 		int 我=1;
 		System.out.println(我);
-		System.out.println(0f/0f);
-
-		
-        System.out.println("i j");
+		Double d=0.3/0;
+		System.out.println(1/d);
+		System.out.println(d);
+		 System.out.println("201506".substring(4, 6));
+        Double tmp=0.0;
+        Double tmp2=new Double(1);
+		 System.out.println(tmp.doubleValue()==0);
+		 System.out.println("i j");
+        
         search:
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 50; j++) {
@@ -56,6 +61,8 @@ public class LeetTest {
                     System.out.println(i+" "+j);
                 }
             }
+        
+       
         
         
        // FileInputStream fis=new FileInputStream("");
@@ -66,17 +73,33 @@ public class LeetTest {
         Iterator iterator=properties.entrySet().iterator();
         while (iterator.hasNext()) {
 			Object object = (Object) iterator.next();
-			System.out.println(object);
+			//System.out.println(object);
 		}
 		Enumeration enumeration=properties.propertyNames();
 		while (enumeration.hasMoreElements()) {
 			Object object = (Object) enumeration.nextElement();
-			System.out.println(object);
+			//System.out.println(object);
 		}
 		
 		A a=new C(1);
 		System.out.println(a.val);
 		System.out.println(3.0/4);
+		a:
+		
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				for (int j2 = 0; j2 < 10; j2++) {
+					if (j2==3&&j==3) {
+						break a;
+					}
+					//System.out.println(j2);
+				}
+				System.out.println(j);
+			}
+			System.out.println(i);
+		}
+		
+		
 //		for (int i = 0; i < 10; i++) {
 //			System.out.println(123456789 / (int) Math.pow(10, i) % 10);
 //		}
