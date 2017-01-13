@@ -49,6 +49,7 @@ public class LeetTest {
 		System.out.println(d);
 		 System.out.println("201506".substring(4, 6));
         Double tmp=0.0;
+        
         Double tmp2=new Double(1);
 		 System.out.println(tmp.doubleValue()==0);
 		 System.out.println("i j");
