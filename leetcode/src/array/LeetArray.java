@@ -129,18 +129,30 @@ public class LeetArray {
 		}
 	}
 
-	public void selectSort(int[] array) {
-
-		for (int i = 0; i < array.length; i++) {
-			int min = array[i];
-			int index;
-			for (int j = i; j < array.length; j++) {
-				if (array[j] < min) {
-					min = array[j];
+//	public void selectSort(int[] array) {
+//
+//		for (int i = 0; i < array.length; i++) {
+//			int min = array[i];
+//			int index;
+//			for (int j = i; j < array.length; j++) {
+//				if (array[j] < min) {
+//					min = array[j];
+//					index = j;
+//					swap(array, i, index);
+//				}
+//			}
+//		}
+//	}
+	
+	public void selectSort(int[] data) {
+		for (int i = 0; i < data.length; i++) {
+			int index=i;
+			for (int j = i; j < data.length; j++) {
+				if (data[j] < data[index]) {
 					index = j;
-					swap(array, i, index);
 				}
 			}
+			swap(data, i, index);
 		}
 	}
 

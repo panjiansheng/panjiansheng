@@ -63,9 +63,9 @@ public class LeetSort {
 				return mid;
 			}
 			if (data[mid]>val) {
-				high=mid;
+				high=mid-1;
 			}else {
-				low=mid;
+				low=mid+1 ;
 			}
 		}
 		

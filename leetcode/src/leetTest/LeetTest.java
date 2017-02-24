@@ -54,6 +54,10 @@ public class LeetTest {
         
         Double tmp2=new Double(1);
 		 System.out.println(tmp.doubleValue()==0);
+		 System.out.println(1-(double)345/(double)34556);
+		 char ca='a';
+		 Character cb='a';
+		 System.out.println(ca==cb);
 		 System.out.println("i j");
         
         search:
