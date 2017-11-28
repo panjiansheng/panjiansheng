@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: www.dcdn.tk
+  name: www-dcdn-tk
   labels:
     name: www.dcdn.tk
     app: www.dcdn.tk
