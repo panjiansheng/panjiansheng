@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: www.dcdn.tk
+  labels:
+    app: www.dcdn.tk
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: www.dcdn.tk
+    spec:
+        containers:
+          - name: mysql
+            image: registry.dcdn.tk:5000/mysql
+            env:       
+              - name: "MYSQL_ROOT_PASSWORD"
+                value: "123456"
+            ports:
+              - containerPort: 3306
+                name: mysql
+                protocol: TCP 
+          - name: wordpress
+            image: registry.dcdn.tk:5000/wordpress
+            env:       
+              - name: "WORDPRESS_DB_HOST"
+                value: "127.0.0.1:4000"
+              - name: "WORDPRESS_DB_USER"
+                value: "root"
+              - name: "WORDPRESS_DB_PASSWORD"
+                value: "123456"
+              - name: "WORDPRESS_DB_NAME"
+                value: "wordpress"
+              - name: "WORDPRESS_TABLE_PREFIX"
+                value: "wp_"
+            ports:
+              - containerPort: 80
+                name: wordpress
+                protocol: TCP
+          - name: mysql-proxy
+            image: registry.dcdn.tk:5000/mysql-proxy
+            env:       
+              - name: "BACKEND_DB_HOST"
+                value: "52.53.224.60"
+              - name: "WORDPRESS_DB_USER"
+                value: "root"
+              - name: "WORDPRESS_DB_PASSWORD"
+                value: "123456"
+            ports:
+              - containerPort: 4000
+                name: mysql-proxy
+                protocol: TCP
