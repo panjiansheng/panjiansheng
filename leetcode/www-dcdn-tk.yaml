@@ -14,9 +14,6 @@ spec:
         containers:
           - name: mysql
             image: registry.dcdn.tk:5000/mysql
-            env:       
-              - name: "MYSQL_ROOT_PASSWORD"
-                value: "123456"
             ports:
               - containerPort: 3306
                 name: mysql
