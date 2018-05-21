@@ -48,7 +48,7 @@ public class LeetList {
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
-		}
+		}}
 //		RandomListNode randomListNode = new RandomListNode(head.label);
 //		RandomListNode headNew = randomListNode;
 //		while (head.next != null) {
@@ -65,7 +65,8 @@ public class LeetList {
 //		}
 //		return headNew;
 
-	}
+	
+
 
 	public TreeNode sortedListToBST(ListNode head) {
 		return null;

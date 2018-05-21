@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class LeetArray {
 
 	public int firstMissingPositive(int[] nums) {
+		
 		// int min=Integer.MAX_VALUE;
 		// int max=0;
 		// int count=0;
